@@ -1,0 +1,63 @@
+
+.underline-indicators > * {
+    cursor: pointer;
+    padding: var(--underline-gap, 1rem) 0;
+    border: 0;
+    border-bottom: .2rem solid hsl( var(--clr-white) / 0);
+}
+
+.underline-indicators > *:hover,
+.underline-indicators > *:focus {
+    border-color: hsl( var(--clr-white) / .50);
+}
+
+.underline-indicators > .active,
+.underline-indicators > [aria-selected='true'] {
+    border-color: hsl( var(--clr-white) / 1);
+}
+
+.tab-list {
+    --gap: 2.5rem;
+}
+
+.dot-indicators > * {
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    padding: .5em; 
+    background-color: hsl( var(--clr-white) / .25);   
+}
+
+.dot-indicators > *:hover,
+.dot-indicators > *:focus {
+    background-color: hsl( var(--clr-white) / .50);   
+}
+
+.dot-indicators > [aria-selected='true'] {    
+    background-color:hsl( var(--clr-white) / 1) ;
+}
+
+.circle-indicators > * {
+    cursor: pointer;
+    font-weight: 300;
+    padding: 1em;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1.7;
+    border: .1em solid hsl( var(--clr-white) / .25);
+    border-radius: 50%;
+    --flow-space: 2em;
+    background-color: hsl(var(--clr-white) / 0);
+}
+
+.circle-indicators > *:hover,
+.circle-indicators > *:focus {
+    background-color: hsl( var(--clr-white) / .25);
+    border-color:hsl( var(--clr-white) / .50);   
+}
+
+.circle-indicators > [aria-selected='true'] {    
+    background-color:hsl( var(--clr-white) / 1) ;
+    color: hsl( var(--clr-dark));
+}

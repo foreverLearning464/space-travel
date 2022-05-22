@@ -1,0 +1,114 @@
+.logo {
+    margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+}
+
+.primary-header {
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.primary-navigation {
+    white-space: nowrap;
+    --gap: clamp(1.3rem, 3vw, 3.5rem);
+    --underline-gap: 2rem;   
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: hsl( var(--clr-dark) / .97);   
+}
+
+.primary-navigation a {
+    text-decoration: none;
+}
+
+.primary-navigation a > span {
+    font-weight: 700;
+    margin: .5em;
+}
+
+
+.mobile-nav-toggle {
+    display: none;
+}
+
+@supports ( backdrop-filter: blur(1.5rem)) {
+    .primary-navigation {
+        background-color: hsl( var(--clr-white) / .02);
+        backdrop-filter: blur(1.5rem);
+    }
+}
+
+@media (max-width: 35em) {
+    .primary-navigation {
+        --underline-gap: 0.5rem;
+        position: fixed;
+        z-index: 1000;
+        inset: 0 0 0 30%;
+        list-style: none;
+        padding: min(20rem, 15vh);
+        margin: 0;
+        flex-direction: column;
+        transform: translateX(100%);
+        transition: transform 500ms ease-in-out;
+    }
+
+    .primary-navigation.underline-indicators .active {
+        border:0;
+    }
+
+    .primary-navigation[data-visible='true'] {
+        transform: translateX(0%);
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        z-index: 2000;
+        right: 1rem;
+        top: 2rem;
+        background: transparent;
+        border: 0;
+        background-image: url(./assets/shared/icon-hamburger.svg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        width: 1.5rem;
+        aspect-ratio: 1;
+    }
+
+    .mobile-nav-toggle[aria-expanded='true'] {
+        background-image: url(./assets/shared/icon-close.svg);
+    }
+
+    .mobile-nav-toggle:focus-visible {
+        outline: 5px solid hsl(var(--clr-light) / .3);
+        outline-offset: 5px;
+    }   
+}
+
+@media (min-width: 35em) and (max-width: 44.999em) {
+    .primary-navigation {
+        padding-inline: 2rem;
+    }
+
+    .primary-navigation a > span {
+        display: none;
+    }
+}
+
+@media (min-width: 45em){
+    .primary-navigation {
+        padding-inline: clamp(2rem, 6vw, 8rem);
+    }
+    .primary-header::after{
+        content: '';
+        width: 100%;
+        height: 1px;
+        display: block;
+        position: relative;
+        background: hsl(var(--clr-white) / .3);
+        order: 1;
+        margin-right: -2.5rem;
+    }
+}
+
